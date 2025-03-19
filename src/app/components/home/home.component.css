@@ -1,0 +1,26 @@
+.service-cube {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: #cce0f5; /* גוון בהיר יותר של כחול */
+    color: #333; /* צבע טקסט כהה יותר לקריאות */
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 500; /* משקל גופן מעט פחות כבד */
+    transition: all 0.3s ease;
+    border: 1px solid #b3d1eb; /* גבול עדין */
+}
+
+.service-cube mat-icon {
+    font-size: 24px;
+    color: #333; /* אייקונים בצבע טקסט כהה */
+}
+
+.service-cube:hover {
+    background: #b3d1eb; /* גוון כהה יותר בריחוף */
+    transform: scale(1.03); /* שינוי קנה מידה עדין יותר */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל עדין בריחוף */
+}

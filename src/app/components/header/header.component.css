@@ -1,0 +1,10 @@
+ 
+  :host {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #f0f0f0;
+    height: 60px;
+    }

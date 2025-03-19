@@ -1,0 +1,21 @@
+<input type="file" (change)="handleFileChange($event, 0)" />
+@if(progresses[0] > 0)
+{<div>התקדמות קובץ 1: {{ progresses[0] }}%</div>}
+<input type="file" (change)="handleFileChange($event, 1)" />
+@if(progresses[1] > 0)
+{<div>התקדמות קובץ 2: {{ progresses[1] }}%</div>}
+<input type="file" (change)="handleFileChange($event, 2)" />
+@if(progresses[2] > 0)
+{<div>התקדמות קובץ 3: {{ progresses[2] }}%</div>}
+<input type="file" (change)="handleFileChange($event, 3)" />
+@if(progresses[3] > 0)
+{<div>התקדמות קובץ 4: {{ progresses[3] }}%</div>}
+<div>
+  <label>שדה 1:</label>
+  <input type="text" [(ngModel)]="field1" />
+</div>
+<div>
+  <label>שדה 2:</label>
+  <input type="text" [(ngModel)]="field2" />
+</div>
+<button (click)="handleUpload()">העלה קבצים ושלח בקשה</button>

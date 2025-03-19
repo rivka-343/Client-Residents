@@ -1,0 +1,13 @@
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* הוספה של position: relative; */
+  }
+  
+  :host > router-outlet + * {
+    flex-grow: 1;
+    padding-top: 60px; /* או גובה ה-header שלך */
+    /* padding-bottom: 60px; */
+  }
