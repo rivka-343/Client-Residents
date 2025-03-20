@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
-  imports: [MatIconModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,MatToolbarModule,RouterLink],
+  imports: [MatIconModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,MatToolbarModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
