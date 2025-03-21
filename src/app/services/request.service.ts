@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class RequestService {
-  private apiUrl = process.env.apiUrl || 'http://localhost:3000';
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient,private AuthService:AuthService) { }
   getPresignedUrl(file: File): Promise<string | null> {
     return lastValueFrom(
