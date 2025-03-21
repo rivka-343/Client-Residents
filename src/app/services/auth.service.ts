@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   // private apiUrl = "https://localhost:7126/api";
  // private apiUrl = "https://server-property-tax.onrender.com/api"
-  private apiUrl = process.env.apiUrl || 'http://localhost:3000';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
   login(userName: string, password: string): Observable<{ token: string; role: string }> {
