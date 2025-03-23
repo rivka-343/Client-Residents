@@ -1,0 +1,16 @@
+<div class="discount-info">
+    <h1>הנחה בארנונה</h1>
+    <p>
+      כאן תופיע הסבר כללי על ההנחה בארנונה – מהי, למי היא מיועדת, ואיך ניתן להגיש בקשה.
+    </p>
+    @if(!isLoading)
+    {
+    <button (click)="handleAction()">
+      {{ hasActiveRequest ? 'צפייה בסטטוס הבקשה' : 'הגשת בקשה להנחה' }}
+    </button>
+    }
+    <!-- @if(isLoading)
+    {
+      <p>טוען...</p>
+    } -->
+</div>

@@ -1,0 +1,23 @@
+<div class="request-status">
+    <!-- <h1>סטטוס הבקשה</h1>
+    @if(error)
+   { <div >{{ error }}</div>} -->
+   @if(requestStatus){ 
+   <div >
+      <p><strong>סטטוס:</strong> {{ requestStatus.status }}</p>
+      <p><strong>approvedArnona:</strong> {{ requestStatus.approvedArnona}}</p>
+      <p><strong>averageMonthlyIncome:</strong> {{ requestStatus.averageMonthlyIncome}}</p>
+      <p><strong>calculatedArnona:</strong> {{ requestStatus.calculatedArnona}}</p>
+      <p><strong>propertyNumber:</strong> {{ requestStatus.propertyNumber}}</p>
+      <h2>מסמכים:</h2>
+      <ul>
+        @for(document of requestStatus.documentUploads; track $index)
+          {<li>
+            <span>{{ document.fileName }}</span>
+            <button (click)="viewDocument(document.s3Url)">צפה במסמך</button>
+          </li>
+        }
+      </ul>
+    </div>
+    }
+  </div>

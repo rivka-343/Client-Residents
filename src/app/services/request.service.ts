@@ -21,9 +21,12 @@ export class RequestService {
     });
   }
 
-  /**
-   * מעלה קובץ ל-S3
-   */
+
+  getUserRequestStatus(): Observable<any> { 
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
+    return this.http.get<any>(`${this.apiUrl}/Requests/my-request`, { headers });
+  }
+  /* מעלה קובץ ל-S3 */
   uploadToS3(presignedUrl: string, file: File, onProgress: (progress: number) => void): Promise<string | null> {
     return new Promise((resolve, reject) => {
       this.http.put(presignedUrl, file, {
@@ -47,12 +50,17 @@ export class RequestService {
     });
   }
 
-  /**
-   * שליחת בקשה לשרת עם פרטי הקבצים
-   */
+  /** שליחת בקשה לשרת עם פרטי הקבצים */
   sendRequest(data: any): Observable<any> {
     console.log(data);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
     return this.http.post(`${this.apiUrl}/Requests/CreateRequest`, data, { headers });
+  }
+
+
+  getRequestStatus(requestId: string): Observable<any> {
+    console.log("getRequestStatus",requestId); 
+   // const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
+    return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}`);
   }
 }

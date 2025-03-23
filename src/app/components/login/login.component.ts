@@ -9,9 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule,    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,MatCardModule],
+  imports: [ReactiveFormsModule,MatFormFieldModule,
+            MatInputModule,MatButtonModule,MatCardModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
