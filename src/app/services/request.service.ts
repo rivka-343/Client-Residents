@@ -48,7 +48,7 @@ export class RequestService {
   //   });
   // }
   /* מעלה קובץ ל-S3 */
- uploadToS3 (presignedUrl: string, file: File, onProgress: (progress: number) => void): Promise<string | null> {
+  uploadToS3(presignedUrl: string, file: File, onProgress: (progress: number) => void): Promise<string | null> {
     return new Promise((resolve, reject) => {
       this.http.put(presignedUrl, file, {
         headers: { 'Content-Type': file.type },
@@ -61,7 +61,7 @@ export class RequestService {
             onProgress(progress);
           } else if (event.type === HttpEventType.Response) {
             const url = new URL(presignedUrl);
-            const fileKey = url.pathname.substring(1); 
+            const fileKey = url.pathname.substring(1);
             console.log(fileKey);
             // מסיר את ה-/ הראשון
             resolve(fileKey);
@@ -97,6 +97,7 @@ export class RequestService {
     // const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
     return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}`);
   }
-  getDocuments(requestId: string): Observable<any>  {
-   return this.http.get<{ fileName: string, downloadUrl: string }[]>(`${this.apiUrl}/Document/request-files/${requestId}`);
+  getDocuments(requestId: string): Observable<any> {
+    return this.http.get<{ fileName: string, downloadUrl: string }[]>(`${this.apiUrl}/Document/request-files/${requestId}`);
+  }
 }
