@@ -15,6 +15,6 @@ export const routes: Routes = [
     { path: 'register', component: SignupComponent },
     { path: 'application', component: PropertyTaxDiscountInfoComponent},
     { path: 'submit-request', component:SubmitRequestComponent,canActivate: [AuthGuard]},
-    { path: 'request-status/:id', component:RequestStatusComponent,canActivate: [AuthGuard]},
+    { path: 'request-status/:id', component:RequestStatusComponent,data: { renderMode: "dynamic" },canActivate: [AuthGuard]},
     { path:'not-login', component: LoginComponent}  
 ];
