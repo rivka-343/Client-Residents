@@ -14,9 +14,9 @@
         <!-- <img [src]="src" alt="document.fileName" style="max-width: 100%; height: auto;" /> -->
         @for(document of requestStatus.documentUploads; track $index)
           {<li>
-
+            <p>===</p>
             <span>{{ document.fileName }}</span>
-            <button (click)="viewDocument(document.s3Url)">צפה במסמך</button>
+            <button (click)="viewDocument(document)">צפה במסמך</button>
           </li>
         }
       </ul>

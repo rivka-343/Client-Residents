@@ -41,6 +41,8 @@ export class RequestStatusComponent implements OnInit {
           response => {
             this.requestStatus.documentUploads = response; // שמירת המידע שהתקבל
             console.log(this.requestStatus);
+            console.log(response);
+            
           },
           error => {
             this.error = 'שגיאה בטעינת מסמכי הבקשה'; // טיפול בשגיאה
