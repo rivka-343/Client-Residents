@@ -48,7 +48,7 @@ export class RequestService {
   //   });
   // }
   /* מעלה קובץ ל-S3 */
-  uploadToS3(presignedUrl: string, file: File, onProgress: (progress: number) => void): Promise<string | null> {
+ uploadToS3 (presignedUrl: string, file: File, onProgress: (progress: number) => void): Promise<string | null> {
     return new Promise((resolve, reject) => {
       this.http.put(presignedUrl, file, {
         headers: { 'Content-Type': file.type },
@@ -60,7 +60,12 @@ export class RequestService {
             const progress = Math.round((event.loaded * 100) / (event.total || 1));
             onProgress(progress);
           } else if (event.type === HttpEventType.Response) {
-            resolve(presignedUrl.split('?')[0]); // מחזיר את ה-URL של הקובץ ב-S3
+            const url = new URL(presignedUrl);
+            const fileKey = url.pathname.substring(1); 
+            console.log(fileKey);
+            // מסיר את ה-/ הראשון
+            resolve(fileKey);
+            //resolve(presignedUrl.split('?')[0]); // מחזיר את ה-URL של הקובץ ב-S3
           }
         },
         error: (error) => {

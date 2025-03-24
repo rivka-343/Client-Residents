@@ -35,7 +35,7 @@ export class SubmitRequestComponent {
           const presignedUrl = await this.RequestService.getPresignedUrl(this.files[i],userId);
           if (presignedUrl) {
             this.s3Urls[i] = await this.RequestService.uploadToS3(presignedUrl, this.files[i], progress => {
-              this.progresses[i] = progress;
+            this.progresses[i] = progress;
             }) || '';
           }
         } catch (error) {
