@@ -11,8 +11,7 @@
       <p><strong>propertyNumber:</strong> {{ requestStatus.propertyNumber}}</p>
       <h2>מסמכים:</h2>
       <ul>
-        <img [src]="src" alt="document.fileName" style="max-width: 100%; height: auto;" />
-
+        <!-- <img [src]="src" alt="document.fileName" style="max-width: 100%; height: auto;" /> -->
         @for(document of requestStatus.documentUploads; track $index)
           {<li>
 

@@ -14,8 +14,7 @@ export class RequestStatusComponent implements OnInit {
   requestId: string | null = null;
   requestStatus: any; // כאן תוכל לשמור את המידע על הבקשה
   error: string | null = null;
-  src:string | null = "https://propertytax-documents.s3.us-east-1.amazonaws.com/IMG_0777.jpg";
-  constructor(private route: ActivatedRoute,private RequestService: RequestService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private RequestService: RequestService, private router: Router) { }
 
   ngOnInit(): void {
     console.log('RequestStatusComponent initialized');
@@ -29,29 +28,27 @@ export class RequestStatusComponent implements OnInit {
     console.log(this.requestId);
     if (this.requestId) {
       console.log('Fetching request status...');
-
-      // this.RequestService.getRequestStatus(this.requestId).subscribe({
-      //   next: (response) =>{
-      //     this.requestStatus = response; // שמירת המידע שהתקבל
-      //     console.log(this.requestStatus);
-      //   },
-      //   error: (error) => {
-      //         this.error = 'שגיאה בטעינת סטטוס הבקשה'; // טיפול בשגיאה
-      //         console.error('Error fetching request status', error);
-      //       }
-      // });
-
-
       this.RequestService.getRequestStatus(this.requestId).subscribe(
         response => {
           this.requestStatus = response; // שמירת המידע שהתקבל
-          console.log(this.requestStatus); 
+          console.log(this.requestStatus);
         },
         error => {
           this.error = 'שגיאה בטעינת סטטוס הבקשה'; // טיפול בשגיאה
           console.error('Error fetching request status', error);
-        })}
-      }
+        })
+        this.RequestService.getDocuments(this.requestId).subscribe(
+          response => {
+            this.requestStatus.documentUploads = response; // שמירת המידע שהתקבל
+            console.log(this.requestStatus);
+          },
+          error => {
+            this.error = 'שגיאה בטעינת מסמכי הבקשה'; // טיפול בשגיאה
+            console.error('Error fetching request status', error);
+          })
+    }
+  }
+
 
   viewDocument(url: string): void {
     // פתח את המסמך בחלון חדש

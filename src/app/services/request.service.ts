@@ -97,5 +97,6 @@ export class RequestService {
     // const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
     return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}`);
   }
-
+  getDocuments(requestId: string): Observable<any>  {
+   return this.http.get<{ fileName: string, downloadUrl: string }[]>(`${this.apiUrl}/Document/request-files/${requestId}`);
 }
