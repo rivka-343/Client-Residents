@@ -45,6 +45,17 @@ export class AuthService {
   getToken(): string | null {    
     return sessionStorage.getItem('token');
   }
+  getUserIdFromToken(): string | null {
+    const token = this.getToken();
+    if (!token) return null;
+    try {
+        const payload = JSON.parse(atob(token.split('.')[1])); // פענוח ה-Payload
+        return payload["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"] || null;
+    } catch (error) {
+        console.error("שגיאה בפענוח התוקן:", error);
+        return null;
+    }
+}
   getUserRole(): string {
     return sessionStorage.getItem('role') || "";
   }

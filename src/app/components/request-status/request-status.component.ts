@@ -14,13 +14,11 @@ export class RequestStatusComponent implements OnInit {
   requestId: string | null = null;
   requestStatus: any; // כאן תוכל לשמור את המידע על הבקשה
   error: string | null = null;
-
+  src:string | null = "https://propertytax-documents.s3.us-east-1.amazonaws.com/IMG_0777.jpg";
   constructor(private route: ActivatedRoute,private RequestService: RequestService, private router: Router) { }
 
   ngOnInit(): void {
     console.log('RequestStatusComponent initialized');
-
-    // קבלת מזהה הבקשה מה-URL
     this.route.paramMap.subscribe(params => {
       this.requestId = params.get('id'); // נניח שהמזהה נמצא ב-URL
       this.getRequestStatus();

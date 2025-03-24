@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+// import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { AuthGuard } from './guards/auth.guard';
 import { PropertyTaxDiscountInfoComponent } from './components/property-tax-discount-info/property-tax-discount-info.component';
 import { SubmitRequestComponent } from './components/submit-request/submit-request.component';

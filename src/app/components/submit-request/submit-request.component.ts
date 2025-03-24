@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RequestService } from '../../services/request.service';
 import { EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-submit-request',
   imports: [FormsModule],
@@ -18,7 +19,7 @@ export class SubmitRequestComponent {
   field2: string = '';
   @Output() requestSubmitted = new EventEmitter<Boolean>();
 
-  constructor(private router: Router,private http: HttpClient,private RequestService: RequestService) {}
+  constructor(private router: Router,private http: HttpClient,private RequestService: RequestService,private authSerrvice:AuthService) {}
 
   handleFileChange(event: any, index: number) {
     this.files[index] = event.target.files[0];
@@ -29,7 +30,9 @@ export class SubmitRequestComponent {
     for (let i = 0; i < 4; i++) {
       if (this.files[i]) {
         try {
-          const presignedUrl = await this.RequestService.getPresignedUrl(this.files[i]);
+          const userId=this.authSerrvice.getUserIdFromToken() || '';
+          console.log(userId);
+          const presignedUrl = await this.RequestService.getPresignedUrl(this.files[i],userId);
           if (presignedUrl) {
             this.s3Urls[i] = await this.RequestService.uploadToS3(presignedUrl, this.files[i], progress => {
               this.progresses[i] = progress;
