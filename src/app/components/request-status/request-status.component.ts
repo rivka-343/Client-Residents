@@ -40,9 +40,6 @@ export class RequestStatusComponent implements OnInit {
         this.RequestService.getDocuments(this.requestId).subscribe(
           response => {
             this.requestStatus.documentUploads = response; // שמירת המידע שהתקבל
-            console.log(this.requestStatus);
-            console.log(response);
-            
           },
           error => {
             this.error = 'שגיאה בטעינת מסמכי הבקשה'; // טיפול בשגיאה

@@ -11,10 +11,8 @@
       <p><strong>propertyNumber:</strong> {{ requestStatus.propertyNumber}}</p>
       <h2>מסמכים:</h2>
       <ul>
-        <!-- <img [src]="src" alt="document.fileName" style="max-width: 100%; height: auto;" /> -->
-        @for(document of requestStatus.documentUploads; track $index)
+        @for(document of requestStatus.documentUploads.files; track $index)
           {<li>
-            <p>===</p>
             <span>{{ document.fileName }}</span>
             <button (click)="viewDocument(document)">צפה במסמך</button>
           </li>
