@@ -57,14 +57,16 @@ export class SubmitRequestComponent {
         fileName: file?.name,
         contentType: file?.type,
         s3Url: this.s3Urls[index],
+        type:index,
       })),
     };
 
     this.RequestService.sendRequest(requestData).subscribe({
       next: () =>{
-         alert('הבקשה נשלחה בהצלחה!');
          this.requestSubmitted.emit(true);
          this.router.navigate(['/application']);
+         alert('הבקשה נשלחה בהצלחה!');
+
       },
       error: (error) => console.error('שגיאה בשליחת הבקשה:', error),
     });
