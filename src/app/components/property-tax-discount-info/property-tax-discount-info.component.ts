@@ -54,6 +54,7 @@ export class PropertyTaxDiscountInfoComponent implements OnInit {
   
     handleAction(): void {
       console.log('Action button clicked',this.hasActiveRequest);
+      console.log(this.idRequest);
       
       if (this.hasActiveRequest) {
         // ניווט לדף הצגת סטטוס הבקשה

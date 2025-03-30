@@ -1,0 +1,106 @@
+mat-card {
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הוספת צל */
+    border-radius: 8px; /* עיגול פינות */
+  }
+  
+  mat-card-content {
+    padding: 20px;
+  }
+  
+  mat-card-content h1 {
+    color: #3f51b5;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc; /* קו תחתון */
+    padding-bottom: 10px;
+  }
+  
+  .tab-group {
+    margin-top: 20px;
+  }
+  
+  .tab-content {
+    padding: 20px;
+  }
+  
+  /* עיצוב תצוגת קבצים */
+  .file-display-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee; /* קו מפריד בין קבצים */
+    padding-bottom: 10px;
+  }
+  
+  .file-display-label {
+    font-weight: bold;
+    margin-left: 10px;
+    width: 250px;
+    text-align: right;
+  }
+  
+  .file-display-value {
+    flex: 1;
+  }
+  
+  .file-display-value a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    transition: color 0.3s ease; /* מעבר צבע חלק */
+  }
+  
+  .file-display-value a:hover {
+    color: #3f51b5;
+  }
+  
+  .file-display-value mat-icon {
+    margin-left: 5px;
+  }
+  
+  /* עיצוב תצוגת פרטים אישיים */
+  .personal-details-display-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #eee; /* קו מפריד בין פרטים */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+    margin-left: 10px;
+    width: 150px;
+    text-align: right;
+  }
+  
+  .detail-value {
+    flex: 1;
+  }
+  
+  .text-right {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .loading-message {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #888;
+  }

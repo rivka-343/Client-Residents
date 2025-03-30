@@ -1,23 +1,150 @@
-<div class="request-status">
-    <!-- <h1>סטטוס הבקשה</h1>
-    @if(error)
-   { <div >{{ error }}</div>} -->
-   @if(requestStatus){ 
-   <div >
-      <p><strong>סטטוס:</strong> {{ requestStatus.status }}</p>
-      <p><strong>approvedArnona:</strong> {{ requestStatus.approvedArnona}}</p>
-      <p><strong>averageMonthlyIncome:</strong> {{ requestStatus.averageMonthlyIncome}}</p>
-      <p><strong>calculatedArnona:</strong> {{ requestStatus.calculatedArnona}}</p>
-      <p><strong>propertyNumber:</strong> {{ requestStatus.propertyNumber}}</p>
-      <h2>מסמכים:</h2>
-      <ul>
-        @for(document of requestStatus.documentUploads.files; track $index)
-          {<li>
-            <span>{{ document.fileName }}</span>
-            <button (click)="viewDocument(document)">צפה במסמך</button>
-          </li>
-        }
-      </ul>
-    </div>
+<mat-card>
+  <mat-card-content>
+    <h1 class="text-right">פרטי בקשת הנחה בארנונה</h1>
+    @if(requestStatus){
+    <mat-tab-group class="tab-group" dir="rtl">
+      <mat-tab label="קבצים">
+        <div class="tab-content">
+
+          @if(requestStatus.documentUploads[0]){
+          <div class="file-display-section">
+            <label class="file-display-label">צילום ת"ז כולל ספח:</label>
+            <div class="file-display-value">
+              <a [href]="requestStatus.documentUploads[0]" target="_blank">
+                <mat-icon>insert_drive_file</mat-icon>
+                צילום ת"ז
+              </a>
+            </div>
+          </div>
+          }
+
+          @if(!requestStatus.documentUploads[0]){
+          <div class="file-display-section">
+            <label class="file-display-label">צילום ת"ז כולל ספח:</label>
+            <div class="file-display-value">
+              לא הועלה קובץ
+            </div>
+          </div>
+          }
+
+          @if(requestStatus.documentUploads[1]){
+          <div class="file-display-section">
+            <label class="file-display-label">דו"ח בנק של 3 החודשים האחרונים:</label>
+            <div class="file-display-value">
+              <a [href]="requestStatus.documentUploads[1]" target="_blank">
+                <mat-icon>insert_drive_file</mat-icon>
+                בנק
+              </a>
+            </div>
+          </div>
+          }
+
+          @if(!requestStatus.documentUploads[1]){
+          <div class="file-display-section">
+            <label class="file-display-label">דו"ח בנק של 3 החודשים האחרונים:</label>
+            <div class="file-display-value">
+              לא הועלה קובץ
+            </div>
+          </div>
+          }
+
+          @if(requestStatus.documentUploads[2]){
+          <div class="file-display-section">
+            <label class="file-display-label">תלושי משכורת של בן/בת זוג 1 (3 חודשים אחרונים):</label>
+            <div class="file-display-value">
+              <a [href]="requestStatus.documentUploads[2]" target="_blank">
+                <mat-icon>insert_drive_file</mat-icon>
+                משכורת
+              </a>
+            </div>
+          </div>
+          }
+
+          @if(!requestStatus.documentUploads[2]){
+          <div class="file-display-section">
+            <label class="file-display-label">תלושי משכורת של בן/בת זוג 1 (3 חודשים אחרונים):</label>
+            <div class="file-display-value">
+              לא הועלה קובץ
+            </div>
+          </div>
+          }
+
+          @if(requestStatus.documentUploads[3]){
+          <div class="file-display-section">
+            <label class="file-display-label">תלושי משכורת של בן/בת זוג 2 (3 חודשים אחרונים):</label>
+            <div class="file-display-value">
+              <a [href]="requestStatus.documentUploads[3]" target="_blank">
+                <mat-icon>insert_drive_file</mat-icon>
+                משכורת
+              </a>
+            </div>
+          </div>
+          }
+          @if(!requestStatus.documentUploads[3]){
+          <div class="file-display-section">
+            <label class="file-display-label">תלושי משכורת של בן/בת זוג 2 (3 חודשים אחרונים):</label>
+            <div class="file-display-value">
+              לא הועלה קובץ
+            </div>
+          </div>
+          }
+
+        </div>
+      </mat-tab>
+
+      <mat-tab label="פרטים אישיים">
+        <div class="tab-content">
+          @if(requestStatus){
+          <div class="personal-details-display-grid">
+            <div class="detail-item">
+              <label class="detail-label">שם פרטי:</label>
+              <span class="detail-value">{{ requestStatus?.fName }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">שם משפחה:</label>
+              <span class="detail-value">{{ requestStatus?.lfName }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">מייל:</label>
+              <span class="detail-value">{{ requestStatus?.gmail }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">מספר בית:</label>
+              <span class="detail-value">{{ requestStatus?.homeNumber }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">רחוב:</label>
+              <span class="detail-value">{{ requestStatus?.street }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">עיר:</label>
+              <span class="detail-value">{{ requestStatus?.city }}</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">מספר נכס:</label>
+              <span class="detail-value">{{ requestStatus?.propertyNumber }}</span>
+            </div>
+          </div>
+          }
+
+        </div>
+      </mat-tab>
+    </mat-tab-group>
     }
-  </div>
+
+    @if(error){
+    <div class="error-message">{{ error }}</div>
+    }
+    @if(!requestStatus && !error){
+    <div class="loading-message">טוען נתונים...</div>
+
+    }
+  </mat-card-content>
+
+</mat-card>

@@ -1,3 +1,43 @@
 .spase{
     margin-bottom:100px;
 }  
+mat-card {
+    margin: 20px;
+}
+
+mat-card-content {
+    padding: 20px;
+}
+
+mat-card-content h1, mat-card-content h2 {
+    color: #3f51b5;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.arnona-explanation {
+    margin-bottom: 20px;
+}
+
+.arnona-explanation p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.arnona-explanation ul, .arnona-explanation ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.arnona-explanation li {
+    line-height: 1.6;
+}
+
+button[mat-raised-button] {
+    margin-top: 20px;
+}
+
+.text-right {
+    direction: rtl; /* כיוון טקסט מימין לשמאל */
+    text-align: right; /* יישור לימין */
+}

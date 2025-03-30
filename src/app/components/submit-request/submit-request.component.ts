@@ -10,23 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIcon} from '@angular/material/icon'
-interface DocumentUpload {
-  fileName: string;
-  contentType: string;
-  s3Url: string;
-  type: number; // DocumentType
-}
+import { RequestData } from '../RequestData';
 
-interface RequestData {
-  fName: string;
-  lfName: string;
-  gmail: string;
-  homeNumber: string;
-  street: string;
-  city: string;
-  propertyNumber: string;
-  documentUploads: DocumentUpload[];
-}
+
 
 @Component({
   selector: 'app-submit-request',
@@ -61,7 +47,7 @@ export class SubmitRequestComponent {
       homeNumber: ['', Validators.required],
       street: ['', Validators.required],
       city: ['', Validators.required],
-      propertyNumber: ['', Validators.required,Validators.minLength(6)],
+      propertyNumber: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
