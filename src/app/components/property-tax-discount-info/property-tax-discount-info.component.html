@@ -1,4 +1,4 @@
-<div class="discount-info">
+<!-- <div class="discount-info">
     <h1>הנחה בארנונה</h1>
     <p>
       כאן תופיע הסבר כללי על ההנחה בארנונה – מהי, למי היא מיועדת, ואיך ניתן להגיש בקשה.
@@ -9,8 +9,43 @@
       {{ hasActiveRequest ? 'צפייה בסטטוס הבקשה' : 'הגשת בקשה להנחה' }}
     </button>
     }
-    <!-- @if(isLoading)
+    @if(isLoading)
     {
       <p>טוען...</p>
-    } -->
-</div>
+    }
+</div> -->
+<mat-card>
+  <mat-card-content>
+      <h1>הנחה בארנונה</h1>
+      <p>ארנונה היא מס עירוני שמוטל על כל מחזיק נכס בתחומי העירייה. גובה הארנונה נקבע בהתאם לגודל הנכס, מיקומו וסוג השימוש בו.</p>
+
+      <h2>מידע נוסף</h2>
+      <p><strong>זכאות:</strong> רשימה של קריטריונים לזכאות להנחה.</p>
+      <p><strong>מסמכים נדרשים:</strong> רשימה של מסמכים שיש לצרף לבקשה.</p>
+      <p><strong>תהליך הגשה:</strong> הסבר קצר על תהליך הגשת הבקשה.</p>
+      <p><strong>מועדים:</strong> ציון מועדים חשובים.</p>
+      <p><strong>שאלות נפוצות:</strong> שאלות נפוצות ותשובות בנושא הנחה בארנונה.</p>
+      <p><strong>יצירת קשר:</strong> פרטי יצירת קשר עם מחלקת הארנונה בעירייה.</p>
+
+      <h2>אפשרויות</h2>
+      <!-- <button mat-raised-button color="primary">הגשת בקשה חדשה</button> -->
+      @if(!isLoading)
+      {
+       @if(hasActiveRequest){
+        <div >
+          <p><strong>סטטוס בקשה:</strong> {{ requestStatus }}</p>
+          <button mat-raised-button color="accent" (click)="handleAction()">צפייה בבקשה</button>
+      </div>
+      }
+      @if(!hasActiveRequest){
+        <div>
+          <button mat-raised-button color="accent" (click)="handleAction()">הגשת בקשה להנחה</button>
+        </div>
+      }
+    }
+    @else {
+      <p>טוען...</p>
+    }
+      </mat-card-content>
+      <div class="spase"></div>
+</mat-card>

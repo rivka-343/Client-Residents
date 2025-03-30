@@ -94,8 +94,12 @@ export class RequestService {
   }
   getRequestStatus(requestId: string): Observable<any> {
     console.log("getRequestStatus", requestId);
-    // const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
-    return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}`);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
+    return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}`, { headers });
+  }
+  getStatus(requestId:string):Observable<any>{
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.AuthService.getToken()}`);
+    return this.http.get<any>(`${this.apiUrl}/Requests/${requestId}/status`, { headers });
   }
   getDocuments(requestId: string): Observable<any> {
     return this.http.get<{ fileName: string, downloadUrl: string }[]>(`${this.apiUrl}/Document/request-files/${requestId}`);

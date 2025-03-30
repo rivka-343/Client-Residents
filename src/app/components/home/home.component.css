@@ -1,26 +1,63 @@
-.service-cube {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 15px;
-    background: #cce0f5; /* גוון בהיר יותר של כחול */
-    color: #333; /* צבע טקסט כהה יותר לקריאות */
-    text-align: center;
-    border-radius: 8px;
-    font-weight: 500; /* משקל גופן מעט פחות כבד */
-    transition: all 0.3s ease;
-    border: 1px solid #b3d1eb; /* גבול עדין */
+mat-card {
+    margin-bottom: 20px;
 }
 
-.service-cube mat-icon {
-    font-size: 24px;
-    color: #333; /* אייקונים בצבע טקסט כהה */
+mat-card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+mat-card-content h1 {
+    color: #3f51b5;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+mat-card-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+mat-card-content button {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.service-cube {
+    width: 22%;
+    height: 180px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
 
 .service-cube:hover {
-    background: #b3d1eb; /* גוון כהה יותר בריחוף */
-    transform: scale(1.03); /* שינוי קנה מידה עדין יותר */
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* צל עדין בריחוף */
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 70px; /* הגדלת האייקון */
+    margin-bottom: 10px;
+    color: #3f51b5;
+}
+
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+
+.spase{
+    margin-bottom: 100px;
 }

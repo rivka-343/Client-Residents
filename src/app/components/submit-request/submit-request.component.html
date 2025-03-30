@@ -1,21 +1,221 @@
-<input type="file" (change)="handleFileChange($event, 0)" />
-@if(progresses[0] > 0)
-{<div>התקדמות קובץ 1: {{ progresses[0] }}%</div>}
-<input type="file" (change)="handleFileChange($event, 1)" />
-@if(progresses[1] > 0)
-{<div>התקדמות קובץ 2: {{ progresses[1] }}%</div>}
-<input type="file" (change)="handleFileChange($event, 2)" />
-@if(progresses[2] > 0)
-{<div>התקדמות קובץ 3: {{ progresses[2] }}%</div>}
-<input type="file" (change)="handleFileChange($event, 3)" />
-@if(progresses[3] > 0)
-{<div>התקדמות קובץ 4: {{ progresses[3] }}%</div>}
-<div>
-  <label>שדה 1:</label>
-  <input type="text" [(ngModel)]="field1" />
+<!-- 
+<mat-tab-group class="tab-group" dir="rtl">
+  <mat-tab label="קבצים">
+    <div class="tab-content">
+      <div class="upload-section">
+        <label class="upload-label">צילום ת"ז כולל ספח</label>
+        <input type="file" (change)="handleFileChange($event, 0)" class="file-input" #idUpload>
+        <button mat-raised-button color="primary" (click)="idUpload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[0] }}</span> @if (progresses[0] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[0]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 1: {{ progresses[0] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">דו"ח בנק של 3 החודשים האחרונים</label>
+        <input type="file" (change)="handleFileChange($event, 1)" class="file-input" #bankUpload>
+        <button mat-raised-button color="primary" (click)="bankUpload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[1] }}</span> @if (progresses[1] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[1]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 2: {{ progresses[1] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">תלושי משכורת של בן/בת זוג 1 (3 חודשים אחרונים)</label>
+        <input type="file" (change)="handleFileChange($event, 2)" class="file-input" #salary1Upload>
+        <button mat-raised-button color="primary" (click)="salary1Upload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[2] }}</span> @if (progresses[2] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[2]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 3: {{ progresses[2] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">תלושי משכורת של בן/בת זוג 2 (3 חודשים אחרונים)</label>
+        <input type="file" (change)="handleFileChange($event, 3)" class="file-input" #salary2Upload>
+        <button mat-raised-button color="primary" (click)="salary2Upload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[3] }}</span> @if (progresses[3] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[3]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 4: {{ progresses[3] }}%</div>
+        }
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="פרטים אישיים">
+    <div class="tab-content">
+      <div class="personal-details-grid">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>שם פרטי</mat-label>
+          <input matInput type="text" [(ngModel)]="fName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>שם משפחה</mat-label>
+          <input matInput type="text" [(ngModel)]="lfName">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מייל</mat-label>
+          <input matInput type="text" [(ngModel)]="gmail">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מספר בית</mat-label>
+          <input matInput type="text" [(ngModel)]="homeNumber">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>רחוב</mat-label>
+          <input matInput type="text" [(ngModel)]="street">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>עיר</mat-label>
+          <input matInput type="text" [(ngModel)]="city">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מספר נכס</mat-label>
+          <input matInput type="text" [(ngModel)]="propertyNumber">
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="submit-button-container">
+  <button mat-raised-button color="primary" (click)="handleUpload()">העלה קבצים ושלח בקשה</button>
+</div> -->
+<mat-tab-group class="tab-group" dir="rtl">
+  <mat-tab label="קבצים">
+    <div class="tab-content">
+      <div class="upload-section">
+        <label class="upload-label">צילום ת"ז כולל ספח</label>
+        <input type="file" (change)="handleFileChange($event, 0)" class="file-input" #idUpload>
+        <button mat-raised-button color="primary" (click)="idUpload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[0] }}</span> @if (progresses[0] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[0]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 1: {{ progresses[0] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">דו"ח בנק של 3 החודשים האחרונים</label>
+        <input type="file" (change)="handleFileChange($event, 1)" class="file-input" #bankUpload>
+        <button mat-raised-button color="primary" (click)="bankUpload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[1] }}</span> @if (progresses[1] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[1]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 2: {{ progresses[1] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">תלושי משכורת של בן/בת זוג 1 (3 חודשים אחרונים)</label>
+        <input type="file" (change)="handleFileChange($event, 2)" class="file-input" #salary1Upload>
+        <button mat-raised-button color="primary" (click)="salary1Upload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[2] }}</span> @if (progresses[2] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[2]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 3: {{ progresses[2] }}%</div>
+        }
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-label">תלושי משכורת של בן/בת זוג 2 (3 חודשים אחרונים)</label>
+        <input type="file" (change)="handleFileChange($event, 3)" class="file-input" #salary2Upload>
+        <button mat-raised-button color="primary" (click)="salary2Upload.click()" class="upload-button">
+          <mat-icon>upload_file</mat-icon> העלה קובץ
+        </button>
+        <span class="file-name">{{ fileNames[3] }}</span> @if (progresses[3] > 0) {
+          <mat-progress-bar mode="determinate" [value]="progresses[3]"></mat-progress-bar>
+          <div class="progress-text">התקדמות קובץ 4: {{ progresses[3] }}%</div>
+        }
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="פרטים אישיים">
+    <div class="tab-content">
+      <div class="personal-details-grid" [formGroup]="form">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>שם פרטי</mat-label>
+          <input matInput type="text" formControlName="fName" required />
+          @if(form.get('fName')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>שם משפחה</mat-label>
+          <input matInput type="text" formControlName="lfName" required />
+          @if(form.get('lfName')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מייל</mat-label>
+          <input matInput type="email" formControlName="gmail" required />
+          @if(form.get('gmail')?.hasError('required')){
+            <mat-error>שדה חובה</mat-error>
+          }
+          @if(form.get('gmail')?.hasError('email')){
+            <mat-error>כתובת מייל לא תקינה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מספר בית</mat-label>
+          <input matInput type="text" formControlName="homeNumber" required />
+          @if(form.get('homeNumber')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>רחוב</mat-label>
+          <input matInput type="text" formControlName="street" required />
+          @if(form.get('street')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>עיר</mat-label>
+          <input matInput type="text" formControlName="city" required />
+          @if(form.get('city')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>מספר נכס</mat-label>
+          <input matInput type="text" formControlName="propertyNumber" required />
+          @if(form.get('propertyNumber')?.invalid){
+            <mat-error>שדה חובה</mat-error>
+          }
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<div class="submit-button-container">
+  <button mat-raised-button color="primary" (click)="handleUpload()" [disabled]="!isFormValid()">העלה קבצים ושלח בקשה</button>
 </div>
-<div>
-  <label>שדה 2:</label>
-  <input type="text" [(ngModel)]="field2" />
-</div>
-<button (click)="handleUpload()">העלה קבצים ושלח בקשה</button>

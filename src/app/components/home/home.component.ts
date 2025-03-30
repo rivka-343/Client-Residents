@@ -6,10 +6,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar'; // Import MatToolbarModule
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-home',
-  imports: [MatIconModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,MatToolbarModule],
+  imports: [MatIconModule,MatFormFieldModule,MatInputModule,
+    MatButtonModule,MatCardModule,MatToolbarModule,
+    MatGridListModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

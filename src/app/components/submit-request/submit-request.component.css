@@ -1,0 +1,72 @@
+.tab-group {
+    max-width: 600px;
+    margin: 20px auto;
+    direction: rtl;
+    unicode-bidi: embed;
+  }
+  
+  .tab-content {
+    padding: 20px;
+    text-align: right; /* שינוי כאן */
+    unicode-bidi: embed;
+  }
+  
+  .upload-section {
+    margin-bottom: 20px;
+    unicode-bidi: embed;
+  }
+  
+  .upload-label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: right;
+    unicode-bidi: embed;
+  }
+  
+  .file-input {
+    display: none;
+    unicode-bidi: embed;
+  }
+  
+  .upload-button {
+    margin-top: 8px;
+    unicode-bidi: embed;
+  }
+  
+  .progress-text {
+    text-align: right;
+    unicode-bidi: embed;
+  }
+  
+  .personal-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    grid-auto-flow: column-reverse;
+    unicode-bidi: embed;
+  }
+  
+  .form-field {
+    text-align: right;
+    unicode-bidi: embed;
+    direction: rtl;
+  }
+  
+  .submit-button-container {
+    text-align: center;
+    /* margin-top: 60px; */
+    unicode-bidi: embed;
+        margin-bottom: 90px; /* או כל ערך אחר שמתאים לך */
+    }
+  
+  
+  .file-name {
+    margin-right: 8px; /* הוספה כאן */
+    font-size: 0.9em;
+    color: #555;
+  }
+  button[disabled] {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+  }

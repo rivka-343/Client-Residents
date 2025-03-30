@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../../services/request.service';
 import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-property-tax-discount-info',
-  imports: [],
+  imports: [MatCardModule,MatButtonModule],
   templateUrl: './property-tax-discount-info.component.html',
   styleUrl: './property-tax-discount-info.component.css'
 })
@@ -11,7 +14,7 @@ export class PropertyTaxDiscountInfoComponent implements OnInit {
     hasActiveRequest: boolean = false;
     isLoading: boolean = true; // משתנה מצב לטעינה
     idRequest: string | null = null; // מזהה הבקשה  
-
+    requestStatus:string|null=null;
     constructor(private router: Router, private requestService: RequestService) {}
     onRequestSubmitted(data: boolean): void {
       console.log('Request submitted:', data);
@@ -25,6 +28,14 @@ export class PropertyTaxDiscountInfoComponent implements OnInit {
             this.idRequest=response.id;
             this.hasActiveRequest = true; // דגל המצב של הבקשה
             this.isLoading = false; // סיום הטעינה
+            if(this.idRequest!=null)
+            this.requestService.getStatus(this.idRequest).subscribe(
+              response => {
+                this.requestStatus=response.status;
+              },
+              error => {
+                this.requestStatus="temp error!"
+              });
         },
         error => {
             if (error.status === 404) {
