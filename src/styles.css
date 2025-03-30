@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto , "Helvetica Neue", sans-serif; }
 :root {
     --mat-toolbar-background-color: #155ba2;
     --mat-toolbar-text-color: #ffffff; /* לבן */
@@ -11,3 +11,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: var(--mat-toolbar-background-color) !important;
     color: var(--mat-toolbar-text-color) !important;
 }
+

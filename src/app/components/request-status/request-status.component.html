@@ -1,6 +1,7 @@
 <mat-card>
   <mat-card-content>
     <h1 class="text-right">פרטי בקשת הנחה בארנונה</h1>
+   
     @if(requestStatus){
     <mat-tab-group class="tab-group" dir="rtl">
       <mat-tab label="קבצים">
@@ -135,6 +136,43 @@
 
         </div>
       </mat-tab>
+
+      <mat-tab label="פרטי חישוב הננחה">
+        <div class="tab-content">
+          @if(requestStatus){
+          <div class="personal-details-display-grid">
+           
+            <div class="detail-item">
+              <label class="detail-label">סטטוס הבקשה:</label>
+              <span class="detail-value">{{ requestStatus?.status }}</span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">הכנסה חודשית ממוצעת:</label>
+              <span class="detail-value">
+                {{ requestStatus?.averageMonthlyIncome }} ₪
+              </span>
+            </div>
+            
+            <div class="detail-item">
+              <label class="detail-label">סכום לתשלום לאחר ההנחה:</label>
+              <span class="detail-value">{{ requestStatus?.calculatedArnona }}  ₪</span>
+            </div>
+
+            <div class="detail-item">
+              <label class="detail-label">אחוז הנחה:</label>
+              <span class="detail-value">{{ requestStatus?.approvedArnona }} %</span>
+            </div>
+            
+          </div>
+          }
+          <div style="color: red; font-weight: bold; text-align: center; margin-top: 10px;">
+            שימו לב: אחוז ההנחה המוצג הינו הערכה בלבד ואינו סופי עד לאישור סופי של הבקשה.
+          </div>
+        </div>
+      </mat-tab>
+
+
     </mat-tab-group>
     }
 
