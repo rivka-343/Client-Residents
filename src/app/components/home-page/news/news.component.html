@@ -1,0 +1,18 @@
+<div class="news-container">
+  <div class="news-content">
+    <h2 class="news-title">חדשות ועדכונים</h2>
+    
+    <div fxLayout="row wrap" fxLayoutGap="24px" fxLayoutAlign="center center">
+      @for(item of newsItems; track item.title)
+      {<app-news-card 
+        
+        [title]="item.title"
+        [summary]="item.summary"
+        [date]="item.date"
+        fxFlex="100%" 
+        fxFlex.gt-xs="45%" 
+        fxFlex.gt-sm="30%">
+      </app-news-card>}
+    </div>
+  </div>
+</div>

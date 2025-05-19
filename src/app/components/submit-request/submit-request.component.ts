@@ -104,8 +104,9 @@ export class SubmitRequestComponent {
         contentType: file?.type || '',
         s3Url: this.s3Urls[index] || '',
         type: this.documentTypes[index],
-      })),
+      })),  
     };
+    console.log(requestData);
 
     this.RequestService.sendRequest(requestData).subscribe({
       next: () => {

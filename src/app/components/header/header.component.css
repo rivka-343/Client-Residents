@@ -1,4 +1,4 @@
- 
+/*  
   :host {
     position: sticky;
     top: 0;
@@ -7,4 +7,203 @@
     z-index: 100;
     background-color: #f0f0f0;
     height: 60px;
+    } */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background-color: #155ba2; /* שינוי לרקע כחול */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
     }
+    
+    .header.scrolled {
+      height: 60px;
+      background-color: #155ba2; /* שמירה על הצבע הכחול גם בגלילה */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      height: 50px;
+      transition: height 0.3s ease;
+      /* הוספת רקע לבן מסביב ללוגו כדי שיבלוט על הרקע הכחול */
+      /* background-color: white; */
+      padding: 5px;
+      border-radius: 4px;
+    }
+    
+    .scrolled .logo {
+      height: 40px;
+    }
+    
+    .desktop-nav {
+      display: flex;
+      height: 100%;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    
+    .nav-links li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      color: white; /* שינוי צבע הטקסט לבן */
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0 15px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: #e0f2fe; /* צבע בהיר יותר בריחוף */
+    }
+    
+    .nav-links a.active {
+      color: #e0f2fe; /* צבע בהיר יותר לקישור פעיל */
+    }
+    
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background-color: white; /* שינוי צבע הקו התחתון לבן */
+    }
+    
+    .search-button {
+      margin-right: 10px;
+      color: white; /* צבע אייקון החיפוש לבן */
+    }
+    
+    .search-button button {
+      color: white; /* וידוא שהכפתור עצמו לבן */
+    }
+    
+    .mobile-menu-button {
+      display: none;
+      color: white; /* צבע אייקון התפריט לבן */
+    }
+    
+    /* תפריט מובייל */
+    .mobile-menu {
+      display: none;
+      background-color: #155ba2; /* רקע כחול גם לתפריט המובייל */
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .mobile-menu.open {
+      max-height: 500px;
+    }
+    
+    .mobile-nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .mobile-nav-links li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* גבול בהיר יותר */
+    }
+    
+    .mobile-nav-links a {
+      display: block;
+      padding: 15px 20px;
+      color: white; /* טקסט לבן בתפריט המובייל */
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .mobile-nav-links a.active {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1); /* רקע בהיר יותר לפריט פעיל */
+    }
+    
+    .mobile-search {
+      padding: 15px 20px;
+    }
+    
+    .search-container {
+      display: flex;
+      border: 1px solid rgba(255, 255, 255, 0.3); /* גבול בהיר יותר */
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.1); /* רקע בהיר יותר לתיבת החיפוש */
+    }
+    
+    .search-container input {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white; /* טקסט לבן בתיבת החיפוש */
+    }
+    
+    .search-container input::placeholder {
+      color: rgba(255, 255, 255, 0.7); /* צבע בהיר יותר לטקסט הפלייסהולדר */
+    }
+    
+    .search-container button {
+      color: white; /* צבע אייקון החיפוש לבן */
+    }
+    
+    /* התאמה למסכים קטנים */
+    @media (max-width: 768px) {
+      .desktop-nav,
+      .search-button {
+        display: none;
+      }
+    
+      .mobile-menu-button {
+        display: block;
+      }
+    
+      .mobile-menu {
+        display: block;
+      }
+    
+      .header-container {
+        padding: 0 15px;
+      }
+    }
+    

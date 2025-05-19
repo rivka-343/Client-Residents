@@ -1,0 +1,20 @@
+<div class="services-container">
+  <div class="services-content">
+    <h2 class="services-title">שירותים מקוונים</h2>
+    
+    <div fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="center center">
+
+      @for(service of services; track service.title)
+{
+      <app-service-cube 
+        [icon]="service.icon"
+        [title]="service.title"
+        [link]="service.link"
+        fxFlex="45%" 
+        fxFlex.gt-xs="30%" 
+        fxFlex.gt-sm="22%">
+      </app-service-cube>
+    }
+    </div>
+  </div>
+</div>

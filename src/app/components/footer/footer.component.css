@@ -5,5 +5,6 @@
     width: 100%;
      /*background-color: #f0f0f0; או כל צבע רקע אחר */
     z-index: 100; /* וודא שהוא מעל התוכן */
-
+    direction: rtl;
+    text-align: right;
   }

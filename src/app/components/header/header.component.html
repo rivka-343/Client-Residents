@@ -1,8 +1,7 @@
 
     <!-- <a routerLink="/home" routerLinkActive="active">Home</a> -->
-  <mat-toolbar color="primary">
+  <!-- <mat-toolbar color="primary">
     <div fxFlex="10%">
-        <!-- <img src="assets/jerusalem-logo.png" alt="לוגו עיריית ירושלים" style="height: 40px;"> -->
     </div>
     <span fxFlex="70%">עיריית חריש</span>
     <nav fxFlex="20%">
@@ -14,4 +13,60 @@
         <a mat-button href="#">News and Updates</a>
         <a mat-button href="#">Contact Us</a>
     </nav>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<header class="header" [ngClass]="{'scrolled': isScrolled}">
+    <div class="header-container">
+     
+   <!-- כפתור חיפוש -->
+   <div class="search-button">
+    <button mat-icon-button aria-label="חיפוש">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+      <!-- תפריט ניווט למסך רחב -->
+      <nav class="desktop-nav">
+        <ul class="nav-links">
+            @for( link of navLinks ;track  link.title)
+          {<li>
+            <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: link.path === '/'}">
+              {{link.title}}
+            </a>
+          </li>
+        }
+        </ul>
+      </nav>
+   <!-- לוגו -->
+   <div class="logo-container">
+    <a routerLink="/">
+      <img src="https://www.harish.muni.il/wp-content/uploads/2021/12/Harish_logo.png" alt="לוגו עיריית חריש" class="logo">
+    </a>
+  </div>
+     
+  
+      <!-- כפתור תפריט למובייל -->
+      <button class="mobile-menu-button" mat-icon-button (click)="toggleMobileMenu()" aria-label="תפריט">
+        <mat-icon>{{isMobileMenuOpen ? 'close' : 'menu'}}</mat-icon>
+      </button>
+    </div>
+  
+    <!-- תפריט מובייל -->
+    <div class="mobile-menu" [ngClass]="{'open': isMobileMenuOpen}">
+      <ul class="mobile-nav-links">
+        <li *ngFor="let link of navLinks">
+          <a [routerLink]="link.path" routerLinkActive="active" (click)="toggleMobileMenu()">
+            {{link.title}}
+          </a>
+        </li>
+        <li class="mobile-search">
+          <div class="search-container">
+            <input type="text" placeholder="חיפוש באתר..." aria-label="חיפוש">
+            <button mat-icon-button aria-label="חיפוש">
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+  

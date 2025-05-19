@@ -1,0 +1,27 @@
+
+.services-container {
+  background-color: #f9f9f9;
+  padding: 3rem 1rem;
+}
+
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .services-title {
+    font-size: 1.75rem;
+  }
+
+  .services-container {
+    padding: 3rem 2rem;
+  }
+}
