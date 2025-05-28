@@ -97,12 +97,13 @@
 <div class="submit-button-container">
   <button mat-raised-button color="primary" (click)="handleUpload()">העלה קבצים ושלח בקשה</button>
 </div> -->
+<div class="spase"></div>
 <mat-tab-group class="tab-group" dir="rtl">
   <mat-tab label="קבצים">
     <div class="tab-content">
       <div class="upload-section">
         <label class="upload-label">צילום ת"ז כולל ספח</label>
-        <input type="file" (change)="handleFileChange($event, 0)" class="file-input" #idUpload>
+        <input type="file" accept="image/*" (change)="handleFileChange($event, 0)" class="file-input" #idUpload>
         <button mat-raised-button color="primary" (click)="idUpload.click()" class="upload-button">
           <mat-icon>upload_file</mat-icon> העלה קובץ
         </button>
@@ -114,7 +115,7 @@
 
       <div class="upload-section">
         <label class="upload-label">דו"ח בנק של 3 החודשים האחרונים</label>
-        <input type="file" (change)="handleFileChange($event, 1)" class="file-input" #bankUpload>
+        <input type="file" accept="image/*" (change)="handleFileChange($event, 1)" class="file-input" #bankUpload>
         <button mat-raised-button color="primary" (click)="bankUpload.click()" class="upload-button">
           <mat-icon>upload_file</mat-icon> העלה קובץ
         </button>
@@ -126,7 +127,7 @@
 
       <div class="upload-section">
         <label class="upload-label">תלושי משכורת של בן/בת זוג 1 (3 חודשים אחרונים)</label>
-        <input type="file" (change)="handleFileChange($event, 2)" class="file-input" #salary1Upload>
+        <input type="file" accept="image/*" (change)="handleFileChange($event, 2)" class="file-input" #salary1Upload>
         <button mat-raised-button color="primary" (click)="salary1Upload.click()" class="upload-button">
           <mat-icon>upload_file</mat-icon> העלה קובץ
         </button>
@@ -138,7 +139,7 @@
 
       <div class="upload-section">
         <label class="upload-label">תלושי משכורת של בן/בת זוג 2 (3 חודשים אחרונים)</label>
-        <input type="file" (change)="handleFileChange($event, 3)" class="file-input" #salary2Upload>
+        <input type="file" accept="image/*" (change)="handleFileChange($event, 3)" class="file-input" #salary2Upload>
         <button mat-raised-button color="primary" (click)="salary2Upload.click()" class="upload-button">
           <mat-icon>upload_file</mat-icon> העלה קובץ
         </button>
@@ -196,13 +197,13 @@
           }
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form-field">
+        <!-- <mat-form-field appearance="outline" class="form-field">
           <mat-label>עיר</mat-label>
           <input matInput type="text" formControlName="city" required />
           @if(form.get('city')?.invalid){
             <mat-error>שדה חובה</mat-error>
           }
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field appearance="outline" class="form-field">
           <mat-label>מספר נכס</mat-label>

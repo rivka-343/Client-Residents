@@ -17,7 +17,7 @@
       background-color: #155ba2; /* שינוי לרקע כחול */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
-      height: 80px;
+      height: 60px;
       display: flex;
       flex-direction: column;
     }

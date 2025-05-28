@@ -9,7 +9,7 @@ import { FooterComponent } from "../../footer/footer.component";
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"],
-  imports: [HeroComponent, WelcomeComponent, ServicesComponent, NewsComponent, FooterComponent],
+  imports: [HeroComponent, WelcomeComponent, ServicesComponent, FooterComponent],
 })
 export class HomeComponent {
   currentYear = new Date().getFullYear()

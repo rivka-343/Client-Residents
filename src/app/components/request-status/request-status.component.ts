@@ -9,7 +9,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIcon} from '@angular/material/icon'
 import { RequestData } from '../RequestData';
-import { log } from 'console';
 
 @Component({
   selector: 'app-request-status',

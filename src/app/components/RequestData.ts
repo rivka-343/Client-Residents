@@ -11,7 +11,7 @@ export interface RequestData {
   gmail: string;
   homeNumber: string;
   street: string;
-  city: string;
+  // city: string;
   propertyNumber: string;
   status: string;
   averageMonthlyIncome: number;

@@ -46,7 +46,7 @@ export class SubmitRequestComponent {
       gmail: ['', [Validators.required, Validators.email]],
       homeNumber: ['', Validators.required],
       street: ['', Validators.required],
-      city: ['', Validators.required],
+      // city: ['', Validators.required],
       propertyNumber: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
@@ -55,11 +55,24 @@ export class SubmitRequestComponent {
     return this.form.valid && this.files.filter((file) => !!file).length === 4;
   }
 
+  // handleFileChange(event: any, index: number) {
+  //   this.files[index] = event.target.files[0];
+  //   this.fileNames[index] = this.files[index]?.name || '';
+  // }
   handleFileChange(event: any, index: number) {
-    this.files[index] = event.target.files[0];
-    this.fileNames[index] = this.files[index]?.name || '';
+    const file: File = event.target.files[0];
+  
+    if (file && !file.type.startsWith('image/')) {
+      alert('ניתן להעלות רק קבצים מסוג תמונה (jpg, png, webp וכו\')');
+      this.files[index] = undefined!;
+      this.fileNames[index] = '';
+      return;
+    }
+  
+    this.files[index] = file;
+    this.fileNames[index] = file?.name || '';
   }
-
+  
   async handleUpload() {
     for (let i = 0; i < 4; i++) {
       if (this.files[i]) {
@@ -89,13 +102,12 @@ export class SubmitRequestComponent {
       this.sendRequest();
     }
   }
-
   sendRequest() {
     if (!this.form.valid) {
       alert('יש למלא את כל השדות הנדרשים בצורה תקינה.');
       return;
     }
-
+  
     console.log('שליחת הבקשה...');
     const requestData: RequestData = {
       ...this.form.value,
@@ -104,19 +116,58 @@ export class SubmitRequestComponent {
         contentType: file?.type || '',
         s3Url: this.s3Urls[index] || '',
         type: this.documentTypes[index],
-      })),  
+      })),
     };
-    console.log(requestData);
-
+  
     this.RequestService.sendRequest(requestData).subscribe({
       next: () => {
+        alert('הבקשה נשלחה בהצלחה!');
         this.requestSubmitted.emit(true);
         this.router.navigate(['/application']);
-        alert('הבקשה נשלחה בהצלחה!');
       },
-      error: (error) => console.error('שגיאה בשליחת הבקשה:', error),
+      error: (error) => {
+        console.error('שגיאה בשליחת הבקשה:', error);
+  
+        // אם יש שגיאת 400 - מציגים למשתמש הודעה מהשרת
+        if (error.status === 400 && error.error) {
+          alert(`שגיאה: ${error.error}`);
+        } else {
+          alert('אירעה שגיאה בלתי צפויה בעת שליחת הבקשה. אנא נסה שוב מאוחר יותר.');
+        }
+  
+        // *** כאן חשוב: לא נוגעים ב-form או בקבצים! ***
+        // כדי לא לאבד נתונים ולתת למשתמש לתקן ולשלוח שוב
+      },
     });
   }
+  
+  // sendRequest() {
+  //   if (!this.form.valid) {
+  //     alert('יש למלא את כל השדות הנדרשים בצורה תקינה.');
+  //     return;
+  //   }
+
+  //   console.log('שליחת הבקשה...');
+  //   const requestData: RequestData = {
+  //     ...this.form.value,
+  //     documentUploads: this.files.map((file, index) => ({
+  //       fileName: file?.name || '',
+  //       contentType: file?.type || '',
+  //       s3Url: this.s3Urls[index] || '',
+  //       type: this.documentTypes[index],
+  //     })),  
+  //   };
+  //   console.log(requestData);
+
+  //   this.RequestService.sendRequest(requestData).subscribe({
+  //     next: () => {
+  //       this.requestSubmitted.emit(true);
+  //       this.router.navigate(['/application']);
+  //       alert('הבקשה נשלחה בהצלחה!');
+  //     },
+  //     error: (error) => console.error('שגיאה בשליחת הבקשה:', error),
+  //   });
+  // }
 }
 //   files: File[] = new Array(4);
 //   s3Urls: string[] = new Array(4);
