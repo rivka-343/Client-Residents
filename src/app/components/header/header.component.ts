@@ -27,11 +27,6 @@ export class HeaderComponent {
   navLinks = [
     { title: "התחבר", path: "/login" },
     { title: "הרשם", path: "/register" },
-    { title: "צור קשר", path: "#" },
-    { title: "אירועים", path: "#" },
-    { title: "אודות", path: "#" },
-    { title: "חדשות ועדכונים", path: "#" },
-    { title: "שירותים", path: "#" },
     { title: "דף הבית", path: "/home" },
   ]
   constructor(public authService: AuthService) { }

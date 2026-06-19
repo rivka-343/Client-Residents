@@ -1,63 +1,106 @@
-mat-card {
-    margin-bottom: 20px;
+.home-card {
+    max-width: 860px;
+    margin: 40px auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
 }
 
 mat-card-content {
-    padding: 20px;
+    padding: 36px 32px;
     text-align: center;
 }
 
-mat-card-content h1 {
-    color: #3f51b5;
-    font-size: 2em;
-    margin-bottom: 10px;
+.intro h1 {
+    color: #1e3b70;
+    font-size: 2.4rem;
+    margin-bottom: 14px;
 }
 
-mat-card-content p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 20px;
+.intro p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #3e4a5e;
 }
 
-mat-card-content button {
-    background-color: #3f51b5;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.service-cube {
-    width: 22%;
-    height: 180px;
-    margin: 10px;
-    border: 1px solid #ccc;
+.action-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+    gap: 24px;
 }
 
-.service-cube:hover {
-    transform: translateY(-5px);
+.service-hero {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #f3f6ff;
+    border-radius: 16px;
+    padding: 22px 24px;
+    border: 1px solid rgba(30, 59, 112, 0.12);
 }
 
 .service-icon {
-    font-size: 70px; /* הגדלת האייקון */
-    margin-bottom: 10px;
-    color: #3f51b5;
+    font-size: 56px;
+    color: #1e3b70;
 }
 
-.service-link {
+.service-text {
+    text-align: left;
+}
+
+.service-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #162a4b;
+}
+
+.service-description {
+    margin-top: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4f5c73;
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    background-color: #1e3b70;
+    color: #ffffff;
     text-decoration: none;
-    color: inherit;
-    font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
 }
 
+.primary-button:hover {
+    background-color: #17325a;
+}
 
-.spase{
-    margin-bottom: 100px;
+@media (max-width: 760px) {
+    .home-card {
+        margin: 24px 16px;
+    }
+
+    mat-card-content {
+        padding: 28px 20px;
+    }
+
+    .service-hero {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .service-text {
+        text-align: center;
+    }
 }
